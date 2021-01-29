@@ -4,6 +4,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
+RUN docker build -f "WebApplication1/Dockerfile" .
 COPY ["WebApplication1.csproj", ""]
 RUN dotnet restore "./WebApplication1.csproj"
 COPY . .
